@@ -1,3 +1,4 @@
+import React from "react";
 import Accordion from "./accordion";
 const accordionData = [
   {
