@@ -2,6 +2,7 @@ import { useState } from "react";
 
 const accordionStyles = {
   maxWidth: "600px",
+  minWidth: "80%",
 };
 
 const accordionTitleStyles = {

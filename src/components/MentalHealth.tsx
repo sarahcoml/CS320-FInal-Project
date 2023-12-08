@@ -1,5 +1,6 @@
 import React from "react";
 import Accordion from "../accordion.tsx";
+import "../styles/subPage.scss";
 const accordionData = [
   {
     title: "Section 1",
@@ -25,7 +26,7 @@ const accordionData = [
 
 const MentalHealth = () => {
   return (
-    <div id="page-container">
+    <div className="sub-page-container">
       <header>
         <h1>Mental Health</h1>
       </header>
