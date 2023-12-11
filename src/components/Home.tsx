@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../home.css"; // Assuming you have a separate CSS file for styling
+import "../home.css"; 
 
 const Home = () => {
   const [activeSlide, setActiveSlide] = useState(0);

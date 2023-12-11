@@ -1,4 +1,3 @@
-/* Navigation.css */
 
 .centered-navigation {
   display: flex;
@@ -6,7 +5,7 @@
   font-family: Arial, sans-serif;
   margin-top: 20px; 
   padding-bottom: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add drop shadow */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
 }
 
 .link {
@@ -48,7 +47,7 @@
 .auth-buttons {
   display: flex;
   align-items: center;
-  margin-left: auto; /* Pushes the buttons to the far right */
+  margin-left: auto; 
 }
 
 .auth-buttons .link {

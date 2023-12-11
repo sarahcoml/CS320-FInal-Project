@@ -1,0 +1,23 @@
+.sub-page-container {
+    display: flex;
+  }
+  
+  .main-content {
+    flex: 1; 
+  }
+  
+  .sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .sidebar button {
+    margin-bottom: 10px;
+  }
+  
