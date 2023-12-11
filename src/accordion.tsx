@@ -1,33 +1,35 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
 const accordionStyles = {
   maxWidth: "600px",
   minWidth: "80%",
+  margin: "auto", 
+  backgroundColor: "white", 
+  color: "#white",
 };
 
 const accordionTitleStyles = {
   display: "flex",
   justifyContent: "space-between",
   cursor: "pointer",
-  padding: "5px",
-  background: "#21aeca",
+  padding: "10px", 
+  color: "black",
+  borderBottom: "2px solid gold", 
+
 };
 
 const accordionContentStyles = {
-  padding: "5px",
-  background: "#39b9d2",
+  padding: "10px", 
+  background: "white",
+  color: "black", 
+  
 };
 
 const AccordionSection = ({
   section,
   isActiveSection,
-  setActiveIndex,
-  sectionIndex,
+  toggleSection,
 }) => {
-  const toggleSection = () => {
-    const nextIndex = isActiveSection ? null : sectionIndex;
-    setActiveIndex(nextIndex);
-  };
   return (
     <div>
       <div style={accordionTitleStyles} onClick={toggleSection}>
@@ -42,16 +44,29 @@ const AccordionSection = ({
 };
 
 const Accordion = ({ sections }) => {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndices, setActiveIndices] = useState([]);
+
+  const toggleSection = (index) => {
+    const currentIndex = activeIndices.indexOf(index);
+    let newIndices;
+
+    if (currentIndex === -1) {
+      newIndices = [...activeIndices, index];
+    } else {
+      newIndices = activeIndices.filter((i) => i !== index);
+    }
+
+    setActiveIndices(newIndices);
+  };
+
   return (
     <div style={accordionStyles}>
       {sections.map((section, index) => (
         <AccordionSection
           section={section}
           key={index}
-          isActiveSection={index === activeIndex}
-          setActiveIndex={setActiveIndex}
-          sectionIndex={index}
+          isActiveSection={activeIndices.includes(index)}
+          toggleSection={() => toggleSection(index)}
         />
       ))}
     </div>

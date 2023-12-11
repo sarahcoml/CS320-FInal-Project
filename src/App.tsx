@@ -1,7 +1,8 @@
 import React from "react";
 import Navigation from "./components/Navigation.tsx";
 import Main from "./components/Main.tsx";
-import "./styles/App.scss";
+
+// import "./styles/App.scss";
 const App = () => {
   return (
     <div id="page-container">
