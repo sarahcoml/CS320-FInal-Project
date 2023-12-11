@@ -1,0 +1,58 @@
+/* Navigation.css */
+
+.centered-navigation {
+  display: flex;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+  margin-top: 20px; 
+  padding-bottom: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add drop shadow */
+}
+
+.link {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #333;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.link:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
+}
+
+.search-container {
+  margin-left: 15px; 
+}
+
+.search-container input {
+  font-family: Arial, sans-serif;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.auth-buttons {
+  display: flex;
+  align-items: center;
+  margin-left: auto; /* Pushes the buttons to the far right */
+}
+
+.auth-buttons .link {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #333;
+}

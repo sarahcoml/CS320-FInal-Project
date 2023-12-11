@@ -1,0 +1,31 @@
+.centered-navigation {
+    display: flex;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+  }
+  
+  .link {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #333; 
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+  
+  .link:hover .dropdown-content {
+    display: block;
+  }
+  
+  .dropdown-content a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+  }
+  
