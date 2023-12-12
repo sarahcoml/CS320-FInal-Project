@@ -33,10 +33,10 @@ const Navigation = () => (
     </div>
     {/* Log In and Sign Up buttons */}
     <div className="auth-buttons">
-      <NavLink className="link" to="/login">
+      <NavLink className="link login" to="/login">
         Log In
       </NavLink>
-      <NavLink className="link" to="/signup">
+      <NavLink className="link login" to="/signup">
         Sign Up
       </NavLink>
     </div>

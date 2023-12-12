@@ -2,6 +2,7 @@ import React from "react";
 import Navigation from "./components/Navigation.tsx";
 import Main from "./components/Main.tsx";
 import "./styles/App.scss";
+import Feedback from "./components/feedbackBox.tsx";
 
 // import "./styles/App.scss";
 const App = () => {
@@ -17,6 +18,7 @@ const App = () => {
       <div id="main-container">
         <Main />
       </div>
+      <Feedback />
     </div>
   );
 };
