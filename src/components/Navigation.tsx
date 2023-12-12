@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import "../Navigation.css"; 
+import "../styles/Navigation.scss";
 
 const Navigation = () => (
   <nav className="centered-navigation">
@@ -31,8 +31,8 @@ const Navigation = () => (
     <div className="search-container">
       <input type="text" placeholder="Search..." />
     </div>
-        {/* Log In and Sign Up buttons */}
-        <div className="auth-buttons">
+    {/* Log In and Sign Up buttons */}
+    <div className="auth-buttons">
       <NavLink className="link" to="/login">
         Log In
       </NavLink>
@@ -40,7 +40,6 @@ const Navigation = () => (
         Sign Up
       </NavLink>
     </div>
-
   </nav>
 );
 

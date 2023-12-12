@@ -1,8 +1,7 @@
 import React from "react";
-import Accordion from "../accordion.tsx";
-import "../MentalHealth.css";
-
-
+import Accordion from "./accordion.tsx";
+import "../styles/mentalHealth.scss";
+import "../styles/subPage.scss";
 
 const accordionData = [
   {
@@ -74,22 +73,24 @@ const accordionData = [
       Aliquam vel libero et tortor sagittis condimentum. Nam id varius turpis, id pharetra eros. Mauris purus tortor, mattis quis eros in, molestie pharetra lorem. Morbi viverra urna purus, nec ornare purus aliquet et. Curabitur tempus nulla id leo eleifend, sit amet lobortis libero interdum. Proin nulla neque, imperdiet nec metus in, volutpat accumsan sem. Curabitur imperdiet et turpis at condimentum. Nunc nec quam fringilla, porta elit nec, pellentesque ligula.
 
     `,
-  }
+  },
 ];
 
 const MentalHealth = () => {
   return (
     <div className="sub-page-container">
-      <div className="sidebar">
-        <button onClick={() => console.log("Take Notes")}>📝</button>
-        <button onClick={() => window.print()}>🖨️</button>
-        <button onClick={() => console.log("Download")}>📥</button>
-      </div>
+      <header>
+        <h1>Mental Health</h1>
+      </header>
       <div className="main-content">
-        <header>
-          <h1>Mental Health</h1>
-        </header>
         <Accordion sections={accordionData} />
+        <div className="sidebar">
+          <button onClick={() => console.log("Take Notes")}>
+            📝 Take Notes
+          </button>
+          <button onClick={() => window.print()}>🖨️ Print</button>
+          <button onClick={() => console.log("Download")}>📥 Download</button>
+        </div>
       </div>
     </div>
   );

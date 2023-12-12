@@ -1,0 +1,26 @@
+.main-content {
+  // flex: 1;
+  display: flex;
+  width: 100%;
+}
+
+.sidebar {
+  // width: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: flex-start;
+
+  // padding: 20px;
+}
+
+.sidebar button {
+  margin-bottom: 10px;
+  font-size: larger;
+  width: 100%;
+  text-align: left;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+}

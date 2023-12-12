@@ -3,8 +3,8 @@ import React, { useState } from "react";
 const accordionStyles = {
   maxWidth: "600px",
   minWidth: "80%",
-  margin: "auto", 
-  backgroundColor: "white", 
+  margin: "auto",
+  backgroundColor: "white",
   color: "#white",
 };
 
@@ -12,28 +12,26 @@ const accordionTitleStyles = {
   display: "flex",
   justifyContent: "space-between",
   cursor: "pointer",
-  padding: "10px", 
+  padding: "10px",
   color: "black",
-  borderBottom: "2px solid gold", 
-
+  borderBottom: "2px solid gold",
+  fontWeight: "bold",
 };
 
 const accordionContentStyles = {
-  padding: "10px", 
+  padding: "10px",
   background: "white",
-  color: "black", 
-  
+  color: "black",
 };
 
-const AccordionSection = ({
-  section,
-  isActiveSection,
-  toggleSection,
-}) => {
+const AccordionSection = ({ section, isActiveSection, toggleSection }) => {
   return (
     <div>
       <div style={accordionTitleStyles} onClick={toggleSection}>
-        <div>{section.title}</div>
+        <div>
+          <span style={{ color: "#F00" }}>{section.title.split(" ")[0]}</span>
+          {section.title.substring(section.title.split(" ")[0].length)}
+        </div>
         <div>{isActiveSection ? "-" : "+"}</div>
       </div>
       {isActiveSection && (

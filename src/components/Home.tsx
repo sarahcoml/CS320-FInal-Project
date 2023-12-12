@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../home.css"; 
+import "../styles/home.scss";
 
 const Home = () => {
   const [activeSlide, setActiveSlide] = useState(0);
@@ -34,9 +34,7 @@ const Home = () => {
       <div className="carousel-container">
         <div id="title">
           <h1 id="app-title">{carouselData[activeSlide].title}</h1>
-          <p id="title-description">
-            {carouselData[activeSlide].description}
-          </p>
+          <p id="title-description">{carouselData[activeSlide].description}</p>
         </div>
         <div className="carousel-controls">
           <button onClick={handlePrevSlide}>&#x27A5;</button>
