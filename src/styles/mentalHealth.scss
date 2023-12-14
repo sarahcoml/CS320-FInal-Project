@@ -24,3 +24,24 @@
     sans-serif;
   -webkit-font-smoothing: antialiased;
 }
+
+.text-fields {
+  position: absolute;
+
+  input {
+    padding: 0.5em; // Adjust as needed
+    font-size: 1em;
+    border: 1px  #ccc;
+    border-radius: 4px;
+
+&.text1 {
+      top: 1000%;
+      left: 200%;
+    }
+
+&.text2 {
+      top: 30%;
+      left: 40%;
+    }  
+  } 
+ }

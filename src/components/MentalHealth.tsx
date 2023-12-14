@@ -2,6 +2,7 @@ import React from "react";
 import Accordion from "./accordion.tsx";
 import "../styles/mentalHealth.scss";
 import "../styles/subPage.scss";
+import primarycare from "../images/PrimaryCare.png";
 
 const accordionData = [
   {
@@ -82,6 +83,13 @@ const MentalHealth = () => {
       <header>
         <h1>Mental Health</h1>
       </header>
+      <div className="overlay-container">
+        <img src={primarycare} alt="" style={{ width: '100%', height: '100%' }} />
+        <div className="text-fields">
+          <input type="text" placeholder="Enter text 1" style={{ position: 'absolute', top: '100%', left: '20%' }} />
+          <input type="text" placeholder="Enter text 2" style={{ position: 'absolute', top: '20%', left: '30%' }} />
+        </div>
+      </div>
       <div className="main-content">
         <Accordion sections={accordionData} />
         <div className="sidebar">
