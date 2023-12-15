@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import Accordion from "./accordion.tsx";
 import "../styles/mentalHealth.scss";
 import "../styles/subPage.scss";
 import primarycare from "../images/PrimaryCare.png";
+import html2pdf from "html2pdf.js";
 
 const accordionData = [
   {
@@ -78,26 +79,154 @@ const accordionData = [
 ];
 
 const MentalHealth = () => {
+  const [isCollapsed, setIsCollapsed] = useState(true);
+
+  /**
+   * collapses or uncollapses the notes
+   */
+  const toggleCollapse = () => {
+    setIsCollapsed(!isCollapsed);
+  };
+
+  /**
+   * scrolls down to the notes section
+   */
+  const handleScrollToNotes = () => {
+    const showNotesSection = document.getElementById("show-notes-button");
+
+    if (showNotesSection) {
+      showNotesSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  /**
+   * for downloading the PDF
+   */
+  const handleDownloadPDF = () => {
+    const content = document.getElementById("formContent");
+
+    if (content) {
+      html2pdf(content);
+    }
+  };
+
+  /**
+   * the initial state of the form/PDF's data. the format is field name: "value"
+   */
+  const [formData, setFormData] = useState({
+    onMind: "",
+    help: "",
+    goals: "",
+    person: "",
+  });
+
+  /**
+   * keeps the input box content updated as the user types
+   */
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
   return (
     <div className="sub-page-container">
       <header>
         <h1>Mental Health</h1>
       </header>
-      <div className="overlay-container">
-        <img src={primarycare} alt="" style={{ width: '100%', height: '100%' }} />
-        <div className="text-fields">
-          <input type="text" placeholder="Enter text 1" style={{ position: 'absolute', top: '100%', left: '20%' }} />
-          <input type="text" placeholder="Enter text 2" style={{ position: 'absolute', top: '20%', left: '30%' }} />
-        </div>
-      </div>
       <div className="main-content">
-        <Accordion sections={accordionData} />
-        <div className="sidebar">
-          <button onClick={() => console.log("Take Notes")}>
-            📝 Take Notes
-          </button>
-          <button onClick={() => window.print()}>🖨️ Print</button>
-          <button onClick={() => console.log("Download")}>📥 Download</button>
+        <div className="data-and-sidebar">
+          <Accordion sections={accordionData} />
+          <div className="sidebar">
+            <button onClick={handleScrollToNotes}>📝 Take Notes</button>
+            <button onClick={() => window.print()}>🖨️ Print</button>
+            <button onClick={() => console.log("Download")}>📥 Download</button>
+          </div>
+        </div>
+        <div className="PDF">
+          <div>
+            {/* Dropdown button */}
+            <button onClick={toggleCollapse} id="show-notes-button">
+              Show Notes
+            </button>
+
+            {/* Collapsible div */}
+            {!isCollapsed && (
+              <div className="PDF-container">
+                {/* PDF content goes here */}
+                <div className="PDF-header">
+                  <h1>My Notes</h1>
+                  <h2>MENTAL HEALTH & SUBSTANCE USE</h2>
+                </div>
+                <div className="PDF-content">
+                  <form className="PDF-form">
+                    <label className="mental-label">
+                      <span>What’s on my mind right now?</span>
+                      <textarea
+                        className="text-mental"
+                        name="onMind"
+                        value={formData.onMind}
+                        onChange={handleInputChange}
+                      />
+                    </label>
+                    <label className="mental-label">
+                      What are my goals right now?
+                      <textarea
+                        className="text-mental"
+                        name="goals"
+                        value={formData.goals}
+                        onChange={handleInputChange}
+                      />
+                    </label>
+                    <label className="mental-label">
+                      What will help me reach these goals?
+                      <textarea
+                        className="text-mental"
+                        name="help"
+                        value={formData.help}
+                        onChange={handleInputChange}
+                      />
+                    </label>
+                    <label className="mental-label">
+                      Person who can help me (write the name of a therapist,
+                      counselor, social or case worker, etc.):
+                      <textarea
+                        name="person"
+                        value={formData.person}
+                        onChange={handleInputChange}
+                      />
+                    </label>
+                  </form>
+
+                  <button onClick={handleDownloadPDF}>
+                    Download PDF of Notes (preview below)
+                  </button>
+
+                  <div id="formContent">
+                    {/* Content to be included in the PDF */}
+                    <h2>Downloadable Notes</h2>
+                    <p>
+                      <b>What’s on my mind right now? </b> {formData.onMind}
+                    </p>
+                    <p>
+                      <b>What are my goals right now? </b> {formData.goals}
+                    </p>
+                    <p>
+                      <b>What will help me reach these goals? </b>{" "}
+                      {formData.help}
+                    </p>
+                    <p>
+                      <b>Person who can help me: </b> {formData.person}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>
