@@ -202,12 +202,12 @@ const MentalHealth = () => {
                     </label>
                   </form>
 
-                  <button onClick={handleDownloadPDF}>
+                  {/* <button onClick={handleDownloadPDF}>
                     Download PDF of Notes (preview below)
                   </button>
 
                   <div id="formContent">
-                    {/* Content to be included in the PDF */}
+                    Content to be included in the PDF
                     <h2>Downloadable Notes</h2>
                     <p>
                       <b>What’s on my mind right now? </b> {formData.onMind}
@@ -222,7 +222,7 @@ const MentalHealth = () => {
                     <p>
                       <b>Person who can help me: </b> {formData.person}
                     </p>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             )}
